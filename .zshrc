@@ -119,6 +119,7 @@ extract () {
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
 alias ll="ls -la"
 
 alias gs='git status '
@@ -126,11 +127,8 @@ alias ga='git add '
 alias gb='git branch '
 alias gc='git commit'
 alias gd='git diff'
-alias python='python3'
 
-alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-
-export PATH="$HOME/.npm-global/bin/:/Users/eli/.bin/:$PATH"
+export PATH="$HOME/.npm-global/bin/:$HOME/.bin/:$PATH"
 
 unsetopt correct_all
 
