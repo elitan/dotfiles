@@ -1,7 +1,6 @@
 #!/bin/bash
 
 export DEBIAN_FRONTEND=noninteractive
-export INSTALL_ZSH=true
 export USERNAME=`whoami`
 
 ## update and install required packages
@@ -14,22 +13,16 @@ sudo apt-get install -y \
   wget \
   unzip \
   apt-transport-https \
-  lsb-release 
+  lsb-release \
+  fonts-powerline \
+  zsh
 
-# Install & Configure Zsh
-if [ "$INSTALL_ZSH" = "true" ]
-then
-    sudo apt-get install -y \
-    fonts-powerline \
-    zsh
-
-    cp -f ~/dotfiles/.zshrc ~/.zshrc
-    chsh -s /usr/bin/zsh $USERNAME
-    wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-    echo "source $PWD/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-fi
+# Install ZSH
+chsh -s /usr/bin/zsh $USERNAME
+# wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+# echo "source $PWD/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 
 # Cleanup
 sudo apt-get autoremove -y
