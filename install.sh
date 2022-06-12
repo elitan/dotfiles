@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 export DEBIAN_FRONTEND=noninteractive
 export USERNAME=`whoami`
 
@@ -18,13 +20,16 @@ sudo apt-get install -y \
   zsh
 
 # Install ZSH
+rm -f $HOME/.zshrc
+
 chsh -s /usr/bin/zsh $USERNAME
-# wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-# echo "source $PWD/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Cleanup
 sudo apt-get autoremove -y
 sudo apt-get autoremove -y
 sudo rm -rf /var/lib/apt/lists/*
+
+# Setup config files
+ln -s $(pwd)/zshrc $HOME/.zshrc
