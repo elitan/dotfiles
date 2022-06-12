@@ -24,7 +24,7 @@ sudo apt-get install -y \
 # Install ZSH
 rm -f $HOME/.zshrc
 
-sudo chsh -s /usr/bin/zsh $USERNAME
+sudo chsh -s /usr/bin/zsh
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
