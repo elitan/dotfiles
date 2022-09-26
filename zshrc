@@ -128,14 +128,4 @@ alias gb='git branch '
 alias gc='git commit'
 alias gd='git diff'
 
-export PATH="$HOME/.npm-global/bin/:$HOME/.bin/:$PATH"
-
-unsetopt correct_all
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/eli/Documents/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/eli/Documents/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/eli/Documents/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/eli/Documents/google-cloud-sdk/completion.zsh.inc'; fi
-
 export EDITOR=vim
